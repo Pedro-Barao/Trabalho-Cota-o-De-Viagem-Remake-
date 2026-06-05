@@ -29,9 +29,9 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
         return openApi -> {
 
-            openApi.getInfo().setTitle("Seminário 3 ADS/ESW");
+            openApi.getInfo().setTitle("Refacção do Seminário 3 ADS/ESW");
 
-            openApi.getInfo().setVersion("1.0.0"); 
+            openApi.getInfo().setVersion("2.0.0"); 
             
             openApi.getInfo().setDescription("API de gerenciamento de cotação de aviação.");
 

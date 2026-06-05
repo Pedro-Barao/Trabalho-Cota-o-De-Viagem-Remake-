@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import com.example.demo.Entities.Desconto;
 import com.example.demo.dto.DescontoDTO;
+import com.example.demo.entities.Desconto;
 
 @Mapper(componentModel = "spring")
 public interface DescontoMapper {
@@ -14,6 +14,6 @@ public interface DescontoMapper {
 
     Desconto toEntity(DescontoDTO descontoDTO);
 
-    List<DescontoDTO> toDTOList(List<Desconto> desconto);
+    List<DescontoDTO> toDTOList(List<Desconto> descontos);
 
 }

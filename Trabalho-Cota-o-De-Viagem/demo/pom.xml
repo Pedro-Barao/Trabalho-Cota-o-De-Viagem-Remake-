@@ -96,6 +96,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+        <!-- Dependência para Requisições -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -106,15 +112,29 @@
             <configuration>
                 <source>${java.version}</source>
                 <target>${java.version}</target>
+
                 <annotationProcessorPaths>
+                    <path>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                        <version>1.18.36</version>
+                    </path>
+
                     <path>
                         <groupId>org.mapstruct</groupId>
                         <artifactId>mapstruct-processor</artifactId>
                         <version>1.5.5.Final</version>
                     </path>
+
+                    <path>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok-mapstruct-binding</artifactId>
+                        <version>0.2.0</version>
+                    </path>
                 </annotationProcessorPaths>
             </configuration>
         </plugin>
+
         <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
