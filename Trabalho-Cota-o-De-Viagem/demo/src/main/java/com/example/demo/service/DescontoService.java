@@ -90,6 +90,7 @@ public class DescontoService {
 
         if(descontoDTO.getValorDesconto() != null) { descontoNovo.setValorDesconto(descontoDTO.getValorDesconto()); }
         if(descontoDTO.getDescricao() != null) { descontoNovo.setDescricao(descontoDTO.getDescricao()); }
+        if(descontoDTO.getDataAplicacao() != null) { descontoNovo.setDataAplicacao(descontoDTO.getDataAplicacao()); }
         if(descontoDTO.getTipoDesconto() != null) { descontoNovo.setTipoDesconto(descontoDTO.getTipoDesconto()); }
 
         return descontoMapper.toDTO(descontoRepository.save(descontoNovo));
