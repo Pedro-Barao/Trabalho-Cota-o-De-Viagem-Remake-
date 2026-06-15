@@ -38,7 +38,7 @@ public class DescontoDTO {
     private String descricao;
 
     @DateTimeFormat
-    private LocalDateTime dataAplicacao; 
+    private LocalDateTime dataAplicacao;
 
     @NotNull(message = "O tipo do desconto é obrigatório")
     private TipoDesconto tipoDesconto;

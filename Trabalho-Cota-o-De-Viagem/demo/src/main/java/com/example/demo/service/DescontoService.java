@@ -46,7 +46,8 @@ public class DescontoService {
 
         // validação extra
         if (descontoDTO.getValorDesconto() != null 
-            && descontoDTO.getValorDesconto().compareTo(BigDecimal.ZERO) <= 0) {
+            && descontoDTO.getValorDesconto().compareTo(BigDecimal.ZERO) <= 0) 
+        {
 
             throw new IllegalArgumentException("O valor do desconto deve ser maior que zero");
 
@@ -63,6 +64,13 @@ public class DescontoService {
         Desconto desconto = descontoMapper.toEntity(descontoDTO);
 
         desconto.setDataAplicacao(LocalDateTime.now());
+
+        if(desconto.getDataAplicacao() == null)
+        {
+
+            desconto.setDataAplicacao(LocalDateTime.now());
+
+        }
         
         return descontoMapper.toDTO(descontoRepository.save(desconto));
         
@@ -77,6 +85,7 @@ public class DescontoService {
         descontoNovo.setValorDesconto(descontoDTO.getValorDesconto());
         descontoNovo.setDescricao(descontoDTO.getDescricao());
         descontoNovo.setTipoDesconto(descontoDTO.getTipoDesconto());
+        descontoNovo.setDataAplicacao(LocalDateTime.now());
 
         return descontoMapper.toDTO(descontoRepository.save(descontoNovo));
 
@@ -90,7 +99,7 @@ public class DescontoService {
 
         if(descontoDTO.getValorDesconto() != null) { descontoNovo.setValorDesconto(descontoDTO.getValorDesconto()); }
         if(descontoDTO.getDescricao() != null) { descontoNovo.setDescricao(descontoDTO.getDescricao()); }
-        if(descontoDTO.getDataAplicacao() != null) { descontoNovo.setDataAplicacao(descontoDTO.getDataAplicacao()); }
+        if(descontoDTO.getDataAplicacao() == null) { descontoNovo.setDataAplicacao(LocalDateTime.now()); }
         if(descontoDTO.getTipoDesconto() != null) { descontoNovo.setTipoDesconto(descontoDTO.getTipoDesconto()); }
 
         return descontoMapper.toDTO(descontoRepository.save(descontoNovo));
