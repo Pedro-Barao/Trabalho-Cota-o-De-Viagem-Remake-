@@ -41,7 +41,7 @@ public class DescontoService {
         
     }
 
-    public DescontoDTO save(DescontoDTO descontoDTO)
+    public DescontoDTO salvar(DescontoDTO descontoDTO)
     {
 
         // validação extra
@@ -110,7 +110,9 @@ public class DescontoService {
     public void deletar(Long id)
     {
 
-        descontoRepository.deleteById(id);
+        Desconto descontoNovo = descontoRepository.findById(id).orElseThrow(() -> new RuntimeException("Desconto não encontrado com o id: " + id));
+
+        descontoRepository.delete(descontoNovo);
         
     }
 

@@ -30,7 +30,7 @@ public class DescontoDTO {
 
     @NotNull(message = "O valor do desconto é obrigatório")
     @DecimalMin(value = "0.01", message = "O valor do desconto deve ser no mínimo 0.01")
-    @Digits(integer = 8, fraction = 2, message = "O valor deve ter no máximo 8 casas inteiras e 2 decimais")
+    @Digits(integer = 8, fraction = 2, message = "O valor do desconto deve ter no máximo 8 casas inteiras e 2 decimais")
     private BigDecimal valorDesconto;
 
     @NotBlank(message = "A descrição do desconto é obrigatória")

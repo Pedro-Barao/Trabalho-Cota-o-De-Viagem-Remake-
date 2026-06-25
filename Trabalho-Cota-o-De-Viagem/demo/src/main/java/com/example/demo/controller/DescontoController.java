@@ -31,20 +31,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/api/descontos")
 public class DescontoController {
 
-
     private final DescontoService descontoService;
 
-    public DescontoController(DescontoService descontoService) {
+    public DescontoController(DescontoService descontoService) 
+    {
 
         this.descontoService = descontoService;
 
     }
 
-    @Operation(summary = "Lista todos os descontos", description = "Cadastra um novo desconto no sistema")
+    @Operation(summary = "Lista todos os descontos", description = "Mostra todos os descontos do sistema")
     @GetMapping
     public ResponseEntity<List<DescontoDTO>> listarDescontos()
     {
-
 
         List<DescontoDTO> descontos = descontoService.listarTodos();
 
@@ -57,29 +56,26 @@ public class DescontoController {
     public ResponseEntity<DescontoDTO> buscarPorId(@PathVariable Long id)
     {
 
-
         Optional<DescontoDTO> descontoDTO = descontoService.buscarPorId(id);
 
         return descontoDTO.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
 
     }
-
+    
     @Operation(summary = "Cria um novo desconto", description = "Cadastra um novo desconto no sistema")
     @PostMapping
     public ResponseEntity<ApiResponse<DescontoDTO>> criarDesconto(@Valid @RequestBody DescontoDTO descontoDTO)
     {
         
-        try
-        {
+        try {
 
-            DescontoDTO savedDesconto = descontoService.save(descontoDTO);
+            DescontoDTO savedDesconto = descontoService.salvar(descontoDTO);
 
             ApiResponse<DescontoDTO> response = new ApiResponse<>(savedDesconto);
 
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
-        } catch (IllegalArgumentException e)
-        {
+        } catch (IllegalArgumentException e) {
 
             ErrorResponse errorResponse = new ErrorResponse("Argumento Inválido", e.getMessage());
 
@@ -87,8 +83,7 @@ public class DescontoController {
 
             return ResponseEntity.badRequest().body(response);
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
 
             ErrorResponse errorResponse = new ErrorResponse("Erro Interno", e.getMessage());
 
@@ -102,11 +97,10 @@ public class DescontoController {
 
     @Operation(summary = "Altera um desconto", description = "Altera um desconto do sistema pelo id")
     @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<DescontoDTO>> atualizaDesconto(@PathVariable Long id,@Valid  @RequestBody DescontoDTO descontoDTO)
+    public ResponseEntity<ApiResponse<DescontoDTO>> atualizaDesconto(@PathVariable Long id,@Valid @RequestBody DescontoDTO descontoDTO)
     {
 
-        try
-        {
+        try {
 
             DescontoDTO novoDesconto = descontoService.atualizar(id, descontoDTO);
 
@@ -114,8 +108,7 @@ public class DescontoController {
 
             return ResponseEntity.ok(response);
 
-        } catch (RuntimeException e)
-        {
+        } catch (RuntimeException e) {
 
             ErrorResponse errorResponse = new ErrorResponse("Desconto não encontrado", e.getMessage());
 
@@ -123,8 +116,7 @@ public class DescontoController {
 
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
 
             ErrorResponse errorResponse = new ErrorResponse("Erro Interno", e.getMessage());
 
@@ -141,8 +133,7 @@ public class DescontoController {
     public ResponseEntity<ApiResponse<DescontoDTO>> atualizaParcialmenteDesconto(@PathVariable Long id, @RequestBody DescontoDTO descontoDTO)
     {
 
-        try
-        {
+        try {
 
             DescontoDTO novoDesconto = descontoService.atualizarParcialmente(id, descontoDTO);
 
@@ -150,8 +141,7 @@ public class DescontoController {
 
             return ResponseEntity.ok(response);
 
-        } catch (RuntimeException e)
-        {
+        } catch (RuntimeException e) {
 
             ErrorResponse errorResponse = new ErrorResponse("Desconto não encontrado", e.getMessage());
 
@@ -159,8 +149,7 @@ public class DescontoController {
 
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
 
             ErrorResponse errorResponse = new ErrorResponse("Erro Interno", e.getMessage());
 
