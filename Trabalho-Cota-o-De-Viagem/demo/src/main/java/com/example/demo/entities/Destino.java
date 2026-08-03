@@ -15,11 +15,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "desconto")
+@Table(name = "destino")
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 public class Destino {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

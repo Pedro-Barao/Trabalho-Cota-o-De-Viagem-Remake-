@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-06-25T16:54:34-0300",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.0.v20260407-0427, environment: Java 21.0.10 (Eclipse Adoptium)"
+    date = "2026-07-27T11:15:55-0300",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.46.100.v20260624-0231, environment: Java 21.0.11 (Eclipse Adoptium)"
 )
 @Component
 public class CotaçãoMapperImpl implements CotaçãoMapper {
@@ -23,10 +23,11 @@ public class CotaçãoMapperImpl implements CotaçãoMapper {
 
         CotaçãoDTO cotaçãoDTO = new CotaçãoDTO();
 
+        cotaçãoDTO.setDataCotação( cotação.getDataCotação() );
         cotaçãoDTO.setId( cotação.getId() );
         cotaçãoDTO.setNúmeroDePessoas( cotação.getNúmeroDePessoas() );
-        cotaçãoDTO.setValorTotal( cotação.getValorTotal() );
         cotaçãoDTO.setStatus( cotação.getStatus() );
+        cotaçãoDTO.setValorTotal( cotação.getValorTotal() );
 
         return cotaçãoDTO;
     }
@@ -39,10 +40,11 @@ public class CotaçãoMapperImpl implements CotaçãoMapper {
 
         Cotação cotação = new Cotação();
 
+        cotação.setDataCotação( cotaçãoDTO.getDataCotação() );
         cotação.setId( cotaçãoDTO.getId() );
         cotação.setNúmeroDePessoas( cotaçãoDTO.getNúmeroDePessoas() );
-        cotação.setValorTotal( cotaçãoDTO.getValorTotal() );
         cotação.setStatus( cotaçãoDTO.getStatus() );
+        cotação.setValorTotal( cotaçãoDTO.getValorTotal() );
 
         return cotação;
     }

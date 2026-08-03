@@ -31,7 +31,6 @@ public class DestinoService {
 
     }
 
-    @SuppressWarnings("null")
     public Optional<DestinoDTO> buscarPorId(Long id)
     {
 
@@ -39,7 +38,6 @@ public class DestinoService {
 
     }
 
-    @SuppressWarnings("null")
     public DestinoDTO salvar(DestinoDTO destinoDTO)
     {
 
@@ -49,7 +47,6 @@ public class DestinoService {
 
     }
 
-    @SuppressWarnings("null")
     public DestinoDTO atualizar(Long id, DestinoDTO destinoDTO)
     {
 
@@ -64,7 +61,6 @@ public class DestinoService {
 
     }
 
-    @SuppressWarnings("null")
     public DestinoDTO atualizarParcialmente(Long id, DestinoDTO destinoDTO)
     {
 
@@ -79,7 +75,6 @@ public class DestinoService {
 
     }
 
-    @SuppressWarnings("null")
     public void deletar(Long id)
     {
 

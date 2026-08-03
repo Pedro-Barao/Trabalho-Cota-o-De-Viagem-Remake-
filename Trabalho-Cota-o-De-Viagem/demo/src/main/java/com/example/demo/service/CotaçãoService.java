@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -38,7 +39,13 @@ public class CotaçãoService {
 
     }
 
-    @SuppressWarnings("null")
+    public Optional<CotaçãoDTO> buscarPorId(Long id)
+    {
+
+        return cotaçãoRepository.findById(id).map(cotaçãoMapper::toDTO);
+
+    }
+
     public CotaçãoDTO salvar(CotaçãoDTO cotaçãoDTO)
     {
 
@@ -51,6 +58,55 @@ public class CotaçãoService {
         cotação.setDestino(destinoReal);
 
         return cotaçãoMapper.toDTO(cotaçãoRepository.save(cotação));
+
+    }
+
+    public CotaçãoDTO atualizar(Long id, CotaçãoDTO cotaçãoDTO)
+    {
+
+        Cotação cotaçãoNova = cotaçãoRepository.findById(id).orElseThrow(() -> new RuntimeException("Cotação não encontrada com o id: " + id));
+
+        Cliente clienteReal = clienteRepository.findById(cotaçãoDTO.getClienteId()).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+
+        Destino destinoReal = destinoRepository.findById(cotaçãoDTO.getDestinoId()).orElseThrow(() -> new RuntimeException("Destino não encontrado"));
+
+        cotaçãoNova.setCliente(clienteReal);
+        cotaçãoNova.setDestino(destinoReal);
+        cotaçãoNova.setDataCotação(cotaçãoDTO.getDataCotação());
+        cotaçãoNova.setNúmeroDePessoas(cotaçãoDTO.getNúmeroDePessoas());
+        cotaçãoNova.setValorTotal(cotaçãoDTO.getValorTotal());
+        cotaçãoNova.setStatus(cotaçãoDTO.getStatus());
+
+        return cotaçãoMapper.toDTO(cotaçãoRepository.save(cotaçãoNova));
+
+    }
+    
+    public CotaçãoDTO atualizarParcialmente(Long id, CotaçãoDTO cotaçãoDTO)
+    {
+
+        Cotação cotaçãoNova = cotaçãoRepository.findById(id).orElseThrow(() -> new RuntimeException("Cotação não encontrada com o id: " + id));
+
+        Cliente clienteReal = clienteRepository.findById(cotaçãoDTO.getClienteId()).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+
+        Destino destinoReal = destinoRepository.findById(cotaçãoDTO.getDestinoId()).orElseThrow(() -> new RuntimeException("Destino não encontrado"));
+
+        if(cotaçãoDTO.getClienteId() != null) { cotaçãoNova.setCliente(clienteReal); }
+        if(cotaçãoDTO.getDestinoId() != null) { cotaçãoNova.setDestino(destinoReal); }
+        if(cotaçãoDTO.getDataCotação() != null) { cotaçãoNova.setDataCotação(cotaçãoDTO.getDataCotação()); }
+        if(cotaçãoDTO.getNúmeroDePessoas() != null) { cotaçãoNova.setNúmeroDePessoas(cotaçãoDTO.getNúmeroDePessoas()); }
+        if(cotaçãoDTO.getValorTotal() != null) { cotaçãoNova.setValorTotal(cotaçãoDTO.getValorTotal()); }
+        if(cotaçãoDTO.getStatus() != null) { cotaçãoNova.setStatus(cotaçãoDTO.getStatus()); }
+
+        return cotaçãoMapper.toDTO(cotaçãoRepository.save(cotaçãoNova));
+
+    }
+
+    public void deletar(Long id)
+    {
+
+        Cotação cotaçãoNova = cotaçãoRepository.findById(id).orElseThrow(() -> new RuntimeException("Cotação não encontrada com o id: " + id));
+
+        cotaçãoRepository.delete(cotaçãoNova);
 
     }
 
