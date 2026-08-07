@@ -20,13 +20,9 @@ import jakarta.validation.constraints.Size;
 public class DescontoDTO {
 
     private Long id;
-    
-/*
 
     @NotNull(message = "O id de cotação é obrigatório")
     private Long cotacaoId;
-
-*/
 
     @NotNull(message = "O valor do desconto é obrigatório")
     @DecimalMin(value = "0.01", message = "O valor do desconto deve ser no mínimo 0.01")

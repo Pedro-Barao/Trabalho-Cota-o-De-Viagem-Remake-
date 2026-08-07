@@ -10,6 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,13 +28,9 @@ public class Desconto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-/*
-
-    @ManyToMany
+    @ManyToOne
     @Column(nullable = false)
     private Long cotacaoId;
-
-*/
 
     @Column(nullable = false)
     private BigDecimal valorDesconto;
