@@ -31,6 +31,7 @@ public class DestinoService {
 
     }
 
+    @SuppressWarnings("null")
     public Optional<DestinoDTO> buscarPorId(Long id)
     {
 
@@ -38,6 +39,7 @@ public class DestinoService {
 
     }
 
+    @SuppressWarnings("null")
     public DestinoDTO salvar(DestinoDTO destinoDTO)
     {
 
@@ -50,6 +52,7 @@ public class DestinoService {
     public DestinoDTO atualizar(Long id, DestinoDTO destinoDTO)
     {
 
+        @SuppressWarnings("null")
         Destino destinoNovo = destinoRepository.findById(id).orElseThrow(() -> new RuntimeException("Destino não encontrado com o id: " + id));
 
         destinoNovo.setNome(destinoDTO.getNome());
@@ -61,6 +64,7 @@ public class DestinoService {
 
     }
 
+    @SuppressWarnings("null")
     public DestinoDTO atualizarParcialmente(Long id, DestinoDTO destinoDTO)
     {
 
@@ -75,6 +79,7 @@ public class DestinoService {
 
     }
 
+    @SuppressWarnings("null")
     public void deletar(Long id)
     {
 

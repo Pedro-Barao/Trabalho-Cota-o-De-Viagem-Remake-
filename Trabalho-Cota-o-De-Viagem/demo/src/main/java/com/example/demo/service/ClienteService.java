@@ -33,6 +33,7 @@ public class ClienteService {
 
     }
 
+    @SuppressWarnings("null")
     public Optional<ClienteDTO> buscarPorId(Long id)
     {
 
@@ -40,6 +41,7 @@ public class ClienteService {
 
     }
 
+    @SuppressWarnings("null")
     public ClienteDTO salvar(ClienteDTO clienteDTO)
     {
 
@@ -56,6 +58,7 @@ public class ClienteService {
         
     }
 
+    @SuppressWarnings("null")
     public ClienteDTO atualizar(Long id, ClienteDTO clienteDTO)
     {
 
@@ -69,6 +72,7 @@ public class ClienteService {
 
     }
 
+    @SuppressWarnings("null")
     public ClienteDTO atualizarParcialmente(Long id, ClienteDTO clienteDTO)
     {
 
@@ -82,6 +86,7 @@ public class ClienteService {
 
     }
 
+    @SuppressWarnings("null")
     public void deletar(Long id)
     {
 

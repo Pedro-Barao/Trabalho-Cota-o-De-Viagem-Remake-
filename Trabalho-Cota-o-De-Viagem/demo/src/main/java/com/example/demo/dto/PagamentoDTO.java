@@ -20,7 +20,7 @@ public class PagamentoDTO {
     private Long id;
 
     @NotNull(message = "O id da cotação é obrigatória")
-    private Long cotaçãoId;
+    private Long cotacaoId;
 
     @NotNull(message = "O valor pago é obrigatório")
     @DecimalMin(value = "0.01", message = "O valor do pagamento deve ser no mínimo 0.01")

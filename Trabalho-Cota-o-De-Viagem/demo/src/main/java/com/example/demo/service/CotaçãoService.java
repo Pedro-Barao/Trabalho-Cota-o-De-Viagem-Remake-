@@ -39,6 +39,7 @@ public class CotaçãoService {
 
     }
 
+    @SuppressWarnings("null")
     public Optional<CotaçãoDTO> buscarPorId(Long id)
     {
 
@@ -51,9 +52,11 @@ public class CotaçãoService {
 
         Cotação cotação = cotaçãoMapper.toEntity(cotaçãoDTO);
 
+        @SuppressWarnings("null")
         Cliente clienteReal = clienteRepository.findById(cotaçãoDTO.getClienteId()).orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
         cotação.setCliente(clienteReal);
 
+        @SuppressWarnings("null")
         Destino destinoReal = destinoRepository.findById(cotaçãoDTO.getDestinoId()).orElseThrow(() -> new RuntimeException("Destino não encontrado"));
         cotação.setDestino(destinoReal);
 
@@ -61,6 +64,7 @@ public class CotaçãoService {
 
     }
 
+    @SuppressWarnings("null")
     public CotaçãoDTO atualizar(Long id, CotaçãoDTO cotaçãoDTO)
     {
 
@@ -81,6 +85,7 @@ public class CotaçãoService {
 
     }
     
+    @SuppressWarnings("null")
     public CotaçãoDTO atualizarParcialmente(Long id, CotaçãoDTO cotaçãoDTO)
     {
 
@@ -101,6 +106,7 @@ public class CotaçãoService {
 
     }
 
+    @SuppressWarnings("null")
     public void deletar(Long id)
     {
 

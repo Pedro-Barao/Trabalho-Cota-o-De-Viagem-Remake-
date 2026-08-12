@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import jakarta.validation.Valid;
 
 
-@Tag(name = "pPagamento", description = "Endpoints para gerenciamento de pagamentos")
+@Tag(name = "Pagamento", description = "Endpoints para gerenciamento de pagamentos")
 @RestController
 @RequestMapping("/api/pagamentos")
 public class PagamentoController {

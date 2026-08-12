@@ -24,7 +24,7 @@ public class Pagamento {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cotaçãoId", nullable = false)
+    @JoinColumn(name = "cotacaoId", nullable = false)
     private Cotação cotação;
 
     @JoinColumn(nullable = false)

@@ -33,6 +33,7 @@ public class DescontoService {
         
     }
 
+    @SuppressWarnings("null")
     public Optional<DescontoDTO> buscarPorId(Long id) 
     {
 
@@ -75,6 +76,7 @@ public class DescontoService {
         
     }
 
+    @SuppressWarnings("null")
     public DescontoDTO atualizar(Long id, DescontoDTO descontoDTO)
     {
 
@@ -89,6 +91,7 @@ public class DescontoService {
 
     }
 
+    @SuppressWarnings("null")
     public DescontoDTO atualizarParcialmente(Long id, DescontoDTO descontoDTO)
     {
 
@@ -103,6 +106,7 @@ public class DescontoService {
 
     }
 
+    @SuppressWarnings("null")
     public void deletar(Long id)
     {
 

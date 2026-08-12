@@ -35,6 +35,7 @@ public class PagamentoService {
 
     }
 
+    @SuppressWarnings("null")
     public Optional<PagamentoDTO> buscarPorId(Long id)
     {
 
@@ -47,7 +48,8 @@ public class PagamentoService {
 
         Pagamento pagamento = pagamentoMapper.toEntity(pagamentoDTO);
 
-        Cotação cotaçãoReal = cotaçãoRepository.findById(pagamentoDTO.getCotaçãoId()).orElseThrow(() -> new RuntimeException("Cotação não encontrada"));
+        @SuppressWarnings("null")
+        Cotação cotaçãoReal = cotaçãoRepository.findById(pagamentoDTO.getCotacaoId()).orElseThrow(() -> new RuntimeException("Cotação não encontrada"));
         pagamento.setCotação(cotaçãoReal);
 
         return pagamentoMapper.toDTO(pagamentoRepository.save(pagamento));
@@ -57,9 +59,11 @@ public class PagamentoService {
     public PagamentoDTO atualizar(Long id, PagamentoDTO pagamentoDTO)
     {
 
+        @SuppressWarnings("null")
         Pagamento pagamentoNovo = pagamentoRepository.findById(id).orElseThrow(() -> new RuntimeException("Pagamento não encontrado com o id: " + id));
 
-        Cotação cotaçãoReal = cotaçãoRepository.findById(pagamentoDTO.getCotaçãoId()).orElseThrow(() -> new RuntimeException("Cotação não encontrada"));
+        @SuppressWarnings("null")
+        Cotação cotaçãoReal = cotaçãoRepository.findById(pagamentoDTO.getCotacaoId()).orElseThrow(() -> new RuntimeException("Cotação não encontrada"));
 
         pagamentoNovo.setCotação(cotaçãoReal);
         pagamentoNovo.setValorPago(pagamentoNovo.getValorPago());
@@ -73,9 +77,11 @@ public class PagamentoService {
     public PagamentoDTO atualizarParcialmente(Long id, PagamentoDTO pagamentoDTO)
     {
 
+        @SuppressWarnings("null")
         Pagamento pagamentoNovo = pagamentoRepository.findById(id).orElseThrow(() -> new RuntimeException("Pagamento não encontrado com o id: " + id));
 
-        Cotação cotaçãoReal = cotaçãoRepository.findById(pagamentoDTO.getCotaçãoId()).orElseThrow(() -> new RuntimeException("Cotação não encontrada"));
+        @SuppressWarnings("null")
+        Cotação cotaçãoReal = cotaçãoRepository.findById(pagamentoDTO.getCotacaoId()).orElseThrow(() -> new RuntimeException("Cotação não encontrada"));
         pagamentoNovo.setCotação(cotaçãoReal);
 
         if(pagamentoNovo.getCotação() != null) { pagamentoNovo.setCotação(cotaçãoReal); }        
@@ -87,6 +93,7 @@ public class PagamentoService {
 
     }
 
+    @SuppressWarnings("null")
     public void deletar(Long id)
     {
 
