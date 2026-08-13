@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <link href = "cliente_style.css" alt = "stylesheet">
+    <title>Clientes</title>
+</head>
+<body>
+
+    <h1>CRUD Clientes</h1>
+
+    <label>Pesquisa por id:</label>
+    <input type = "number" id = "procura_id" autocomplete = "off" value = "">
+    <button id = "botao_procurar" onclick = "buscarClientePorId()">Procurar</button>
+    <br><br>
+
+    <label>Id Cliente:</label>
+    <input type = "number" id = "cliente_Id" readonly autocomplete = "off" value = "">
+    <br>
+
+    <label>Nome Cliente:</label>
+    <input type = "text" id = "cliente_Nome" readonly autocomplete = "off" value = "">
+    <br>
+
+    <label>Email Cliente:</label>
+    <input type = "text" id = "cliente_Email" readonly autocomplete = "off" value = "">
+    <br>
+
+    <label>Telefone Cliente:</label>
+    <input type = "text" id = "cliente_Telefone" readonly autocomplete = "off" value = "">
+    <br>
+
+    <script src = "cliente_script.js"></script>
+
+</body>
+</html>
