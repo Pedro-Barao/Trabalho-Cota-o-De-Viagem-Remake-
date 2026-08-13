@@ -1,56 +1,114 @@
 window.onload = function() {
 
-    document.getElementById("procura_id").value = "";
-    document.getElementById("cliente_Id").value = "";
     document.getElementById("cliente_Nome").value = "";
     document.getElementById("cliente_Email").value = "";
     document.getElementById("cliente_Telefone").value = "";
 
 }
 
-function buscarClientePorId() {
+function criarCliente() {
 
-    const id = document.getElementById("procura_id").value;
 
-    if (!id || id.trim() === "") 
+    
+    const nome = document.getElementById("cliente_Nome").value = cliente.nome;
+    const email = document.getElementById("cliente_Email").value = cliente.email;
+    const telefone = document.getElementById("cliente_Telefone").value = cliente.telefone;
+
+    if(!nome || !email || !telefone)
     {
 
-        alert("Por favor, informe o id do cliente");
+        alert("Por favor, preencha todos os dados");
         return;
 
     }
 
-    fetch(`http://localhost:8080/api/clientes/${id}`)
-        .then(response => {
+    const botao_criar = document.getElementById("botao_criar");
 
-            if (response.status === 404)
+    if(botao_criar)
+    {
+
+        botao_criar.disabled = true;
+
+        
+
+        try 
+        {
+
+            const salvar = fetch(`http://localhost:8080/api/clientes`, {
+
+                method: "POST",
+                headers:
+                {
+
+                    "Content-Type": "application/json"
+
+                },
+                body: 
+                {
+
+                    nome: nome,
+                    email: email,
+                    telefone: telefone
+
+                }
+
+            });
+
+            if(resp.status == 200 || resp.status == 201)
             {
 
-                throw new Error("Id do cliente não encontrado");
+                alert("Cliente criado com sucesso");
+
+
+                document.getElementById("cliente_Nome").value = "";
+                document.getElementById("cliente_Email").value = "";
+                document.getElementById("cliente_Telefone").value = "";
 
             }
 
-            return response.json();
+            else
+            {
 
-        })
-        .then(cliente => {
+                let tipoError;
 
-            document.getElementById("cliente_Id").value = cliente.id;
-            document.getElementById("cliente_Nome").value = cliente.nome;
-            document.getElementById("cliente_Email").value = cliente.email;
-            document.getElementById("cliente_Telefone").value = cliente.telefone;
+                try 
+                { 
+                    
+                    tipoError = await resp.text(); 
+                
+                } 
+                
+                catch(error) 
+                { 
+                    
+                    tipoError = resp.statusText; 
+                
+                }
 
-        })
+                throw new Error("Erro ao criar cliente: " + resp.status + " " + tipoError);
 
-        .catch(error => {
+            }
+
+        }
+
+        catch(error) 
+        {
 
             alert(error.message);
 
-            document.getElementById("cliente_Id").value = "";
             document.getElementById("cliente_Nome").value = "";
             document.getElementById("cliente_Email").value = "";
             document.getElementById("cliente_Telefone").value = "";
 
-        });
+        };
+
+    }
+
+    if (botao_criar) 
+    {
+            
+        botao_criar.disabled = false;
+
+    }
 
 }

@@ -4,32 +4,25 @@
     <meta charset = "UTF-8">
     <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
     <link href = "cliente_style.css" alt = "stylesheet">
-    <title>Clientes</title>
+    <title>Post Clientes</title>
 </head>
 <body>
 
-    <h1>CRUD Clientes</h1>
-
-    <label>Pesquisa por id:</label>
-    <input type = "number" id = "procura_id" autocomplete = "off" value = "">
-    <button id = "botao_procurar" onclick = "buscarClientePorId()">Procurar</button>
-    <br><br>
-
-    <label>Id Cliente:</label>
-    <input type = "number" id = "cliente_Id" readonly autocomplete = "off" value = "">
-    <br>
+    <h1>POST CLIENTE</h1>
 
     <label>Nome Cliente:</label>
-    <input type = "text" id = "cliente_Nome" readonly autocomplete = "off" value = "">
+    <input type = "text" id = "cliente_Nome" autocomplete = "off" value = "">
     <br>
 
     <label>Email Cliente:</label>
-    <input type = "text" id = "cliente_Email" readonly autocomplete = "off" value = "">
+    <input type = "text" id = "cliente_Email"  autocomplete = "off" value = "">
     <br>
 
     <label>Telefone Cliente:</label>
-    <input type = "text" id = "cliente_Telefone" readonly autocomplete = "off" value = "">
+    <input type = "text" id = "cliente_Telefone"  autocomplete = "off" value = "">
     <br>
+
+    <button id = "botao_criar" onclick = "criarCliente()">Criar Cliente</button>
 
     <script src = "cliente_script.js"></script>
 
