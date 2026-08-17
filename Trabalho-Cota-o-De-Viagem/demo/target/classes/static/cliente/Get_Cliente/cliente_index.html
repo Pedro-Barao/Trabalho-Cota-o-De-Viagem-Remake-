@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <link href = "cliente_style.css" alt = "stylesheet">
+    <title>Get Clientes</title>
+</head>
+<body>
+
+    <h1>GET CLIENTES</h1>
+
+    <button id = "botao_procurar" onclick = "buscarCliente()">Buscar Clientes</button>
+
+    <table>
+
+        <tr>
+
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+
+        </tr>
+
+        <tbody id = "cliente_lista">
+
+            <tr>
+
+                <td type = "number" id = "cliente_Id" readonly autocomplete = "off" value = ""></td>
+                <td type = "text" id = "cliente_Nome" readonly autocomplete = "off" value = ""></td>
+                <td type = "text" id = "cliente_Email" readonly autocomplete = "off" value = ""></td>
+                <td type = "text" id = "cliente_Telefone" readonly autocomplete = "off" value = ""></td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <script src = "cliente_script.js"></script>
+
+</body>
+</html>
