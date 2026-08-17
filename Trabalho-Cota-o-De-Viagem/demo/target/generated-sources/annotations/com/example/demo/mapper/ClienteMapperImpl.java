@@ -1,6 +1,6 @@
 package com.example.demo.mapper;
 
-import com.example.demo.dto.ClienteDTO;
+import com.example.demo.dto.DTO_Clientes.ClienteDTO;
 import com.example.demo.entities.Cliente;
 import java.util.ArrayList;
 import java.util.List;

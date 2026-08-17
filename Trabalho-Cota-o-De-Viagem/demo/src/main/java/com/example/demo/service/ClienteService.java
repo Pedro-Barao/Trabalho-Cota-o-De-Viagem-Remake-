@@ -7,7 +7,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dto.ClienteDTO;
+import com.example.demo.dto.DTO_Clientes.ClienteDTO;
+import com.example.demo.dto.DTO_Clientes.ClienteDTO_PATCH;
 import com.example.demo.entities.Cliente;
 import com.example.demo.mapper.ClienteMapper;
 import com.example.demo.repository.IClienteRepository;
@@ -73,14 +74,14 @@ public class ClienteService {
     }
 
     @SuppressWarnings("null")
-    public ClienteDTO atualizarParcialmente(Long id, ClienteDTO clienteDTO)
+    public ClienteDTO atualizarParcialmente(Long id, ClienteDTO_PATCH clienteDTO_patch)
     {
 
         Cliente clienteNovo = clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente não encontrado com o id: " + id));
 
-        if (clienteDTO.getNome() != null) { clienteDTO.setNome(clienteNovo.getNome()); }
-        if (clienteDTO.getEmail() != null) { clienteDTO.setEmail(clienteNovo.getEmail()); }
-        if (clienteDTO.getTelefone() != null) { clienteDTO.setTelefone(clienteNovo.getTelefone()); }
+        if (clienteDTO_patch.getNome() != null) { clienteNovo.setNome(clienteDTO_patch.getNome()); }
+        if (clienteDTO_patch.getEmail() != null) { clienteNovo.setEmail(clienteDTO_patch.getEmail()); }
+        if (clienteDTO_patch.getTelefone() != null) { clienteNovo.setTelefone(clienteDTO_patch.getTelefone()); }
 
         return clienteMapper.toDTO(clienteRepository.save(clienteNovo));
 

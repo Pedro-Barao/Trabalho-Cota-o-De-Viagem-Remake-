@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.mapstruct.Mapper;
 
-import com.example.demo.dto.ClienteDTO;
+import com.example.demo.dto.DTO_Clientes.ClienteDTO;
 import com.example.demo.entities.Cliente;
 
 @Mapper(componentModel = "spring")

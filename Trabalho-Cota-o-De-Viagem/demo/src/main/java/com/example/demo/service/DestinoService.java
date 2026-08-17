@@ -70,10 +70,10 @@ public class DestinoService {
 
         Destino destinoNovo = destinoRepository.findById(id).orElseThrow(() -> new RuntimeException("Destino não encontrado com o id: " + id));
 
-        if (destinoDTO.getNome() != null) { destinoDTO.setNome(destinoNovo.getNome()); }
-        if (destinoDTO.getDescrição() != null) { destinoDTO.setDescrição(destinoNovo.getDescrição()); }
-        if (destinoDTO.getLocalização() != null) { destinoDTO.setLocalização(destinoNovo.getLocalização()); }
-        if (destinoDTO.getPreçoPorPessoa() != null) { destinoDTO.setPreçoPorPessoa(destinoNovo.getPreçoPorPessoa()); }
+        if (destinoDTO.getNome() != null) { destinoNovo.setNome(destinoDTO.getNome()); }
+        if (destinoDTO.getDescrição() != null) { destinoNovo.setDescrição(destinoDTO.getDescrição()); }
+        if (destinoDTO.getLocalização() != null) { destinoNovo.setLocalização(destinoDTO.getLocalização()); }
+        if (destinoDTO.getPreçoPorPessoa() != null) { destinoNovo.setPreçoPorPessoa(destinoDTO.getPreçoPorPessoa()); }
 
         return destinoMapper.toDTO(destinoRepository.save(destinoNovo));
 

@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.ClienteDTO;
+import com.example.demo.dto.DTO_Clientes.ClienteDTO;
+import com.example.demo.dto.DTO_Clientes.ClienteDTO_PATCH;
 import com.example.demo.dto.response.ApiResponse;
 import com.example.demo.dto.response.ErrorResponse;
 import com.example.demo.service.ClienteService;
@@ -133,12 +134,12 @@ public class ClienteController {
 
     @Operation(summary = "Altera um cliente", description = "Altera um cliente no sistema")
     @PatchMapping("/{id}")
-    public ResponseEntity<ApiResponse<ClienteDTO>> alterarParcialmenteCliente(@PathVariable Long id, @Valid @RequestBody ClienteDTO clienteDTO)
+    public ResponseEntity<ApiResponse<ClienteDTO>> alterarParcialmenteCliente(@PathVariable Long id, @Valid @RequestBody ClienteDTO_PATCH clienteDTO_patch)
     {
 
         try {
 
-            ClienteDTO novoCliente = clienteService.atualizarParcialmente(id, clienteDTO);
+            ClienteDTO novoCliente = clienteService.atualizarParcialmente(id, clienteDTO_patch);
 
             ApiResponse<ClienteDTO> response = new ApiResponse<>(novoCliente);
 

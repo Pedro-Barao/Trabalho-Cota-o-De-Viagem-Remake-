@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <link href = "cliente_style.css" alt = "stylesheet">
+    <title>Patch Clientes</title>
+</head>
+<body>
+
+    <h1>PATCH CLIENTE</h1>
+
+    <h2>Dados Antigos</h2>
+    <label>Pesquisa por id:</label>
+    <input type = "number" id = "procura_id" autocomplete = "off" value = "">
+    <button id = "botao_procurar" onclick = "buscarClientePorId()">Procurar</button>
+    <br><br>
+
+    <label>Id Cliente:</label>
+    <input type = "number" id = "cliente_Id" readonly autocomplete = "off" value = "">
+    <br>
+
+    <label>Nome Cliente:</label>
+    <input type = "text" id = "cliente_Nome_Antigo" readonly autocomplete = "off" value = "">
+    <br>
+
+    <label>Email Cliente:</label>
+    <input type = "text" id = "cliente_Email_Antigo" readonly autocomplete = "off" value = "">
+    <br>
+
+    <label>Telefone Cliente:</label>
+    <input type = "text" id = "cliente_Telefone_Antigo" readonly autocomplete = "off" value = "">
+    <br>
+    <br>
+
+    <h2>Dados Novos</h2>
+    <label>Nome Cliente:</label>
+    <input type = "text" id = "cliente_Nome_Novo" autocomplete = "off" value = "">
+    <br>
+
+    <label>Email Cliente:</label>
+    <input type = "text" id = "cliente_Email_Novo"  autocomplete = "off" value = "">
+    <br>
+
+    <label>Telefone Cliente:</label>
+    <input type = "text" id = "cliente_Telefone_Novo"  autocomplete = "off" value = "">
+    <br>
+
+    <button id = "botao_alterar" onclick = "alterarCliente()">Alterar Cliente</button>
+
+    <script src = "cliente_script.js"></script>
+
+</body>
+</html>
